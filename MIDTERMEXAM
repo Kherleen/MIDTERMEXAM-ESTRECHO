@@ -1,0 +1,36 @@
+import 'package:flutter/material.dart';//mports the Flutter library 
+class Counter extends StatefulWidget {
+  const Counter ({super.key});
+  State<Counter> createState() => _CounterState();
+}//_counter variable used to keep track of the current count.
+class _CounterState extends State<Counter>{
+  int _counter = 0;
+  void _increment() {
+   setState(() {
+      _counter++;
+    });
+  }
+@override //This widget is the root of your application.
+Widget build(BuildContext context) {
+  // TODO: implement build
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: <Widget> [
+    ElevatedButton(onPressed: _increment, child: const Text('Increment'),),
+    const SizedBox (width: 16),
+    Text('$_counter') 
+    ],
+    );
+  }
+}
+void main() {
+  runApp(
+    const MaterialApp(
+    home: Scaffold(
+    body: Center (
+      child: Counter(),
+    ),
+    ),)
+  );
+}
+
